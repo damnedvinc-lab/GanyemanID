@@ -173,3 +173,19 @@ body {
     background: #fff;
   }
 }
+
+/* Cetak surat jalan: hanya area .print-area yang tercetak */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+  }
+}

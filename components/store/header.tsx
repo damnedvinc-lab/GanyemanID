@@ -106,7 +106,7 @@ export function StoreHeader() {
             <ShoppingBag className="size-5" aria-hidden />
             <span className="hidden xl:inline">Keranjang</span>
             {count > 0 && (
-              <span className={cn("absolute right-0.5 top-0.5 grid min-w-5 place-items-center rounded-full bg-accent-strong px-1 text-[11px] font-bold leading-5 text-white tnum xl:static", bump && "animate-bump")}>
+              <span className={cn("absolute right-0.5 top-0.5 grid min-w-5 place-items-center rounded-full bg-primary px-1 text-[11px] font-bold leading-5 text-white tnum xl:static", bump && "animate-bump")}>
                 {count}
               </span>
             )}

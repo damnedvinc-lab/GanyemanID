@@ -34,9 +34,9 @@ export function DemoPanel() {
   );
 
   return (
-    <div className="no-print fixed bottom-20 left-4 z-40 md:bottom-4">
+    <div className="no-print fixed bottom-24 right-3 z-40 md:bottom-4 md:right-4">
       {open ? (
-        <div className="w-72 rounded-card border border-line bg-surface p-4 shadow-lift" role="dialog" aria-label="Panel demo prototype">
+        <div className="w-[min(18rem,calc(100vw-24px))] rounded-card border border-line bg-surface p-4 shadow-lift" role="dialog" aria-label="Panel demo prototype">
           <div className="mb-3 flex items-center justify-between">
             <p className="flex items-center gap-2 text-sm font-semibold">
               <FlaskConical className="size-4 text-primary" aria-hidden /> Panel demo
@@ -91,10 +91,11 @@ export function DemoPanel() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex h-9 items-center gap-1.5 rounded-full border border-line bg-surface px-3 text-xs font-semibold text-muted shadow-soft hover:text-ink"
+          aria-label="Buka panel demo"
+          className="inline-flex size-10 items-center justify-center gap-1.5 rounded-full border border-line bg-surface text-xs font-semibold text-muted shadow-lift hover:text-ink md:h-9 md:w-auto md:px-3 md:shadow-soft"
         >
-          <FlaskConical className="size-3.5 text-primary" aria-hidden /> Demo
-          {state.demo.view !== "normal" && <span className="rounded-full bg-warning-soft px-1.5 text-ink">{state.demo.view === "empty" ? "Kosong" : "Memuat"}</span>}
+          <FlaskConical className="size-4 text-primary md:size-3.5" aria-hidden /> <span className="hidden md:inline">Demo</span>
+          {state.demo.view !== "normal" && <span className="hidden rounded-full bg-warning-soft px-1.5 text-ink md:inline">{state.demo.view === "empty" ? "Kosong" : "Memuat"}</span>}
         </button>
       )}
     </div>

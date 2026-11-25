@@ -179,6 +179,7 @@ interface Actions {
   receiveStock: (input: { skuId: string; qty: number; unitCost: number; freight: number; supplier: string }) => void;
   saveOpname: (entries: { skuId: string; physical: number; reason: string }[]) => string;
   updatePrice: (skuId: string, field: "price" | "resellerPrice", value: number, reason?: string) => void;
+  updateSku: (skuId: string, patch: Partial<Pick<Sku, "minStock" | "packagingGrams" | "dimensions" | "gramsPerUnit" | "packsPerUnit">>) => void;
   recordInvoicePayment: (number: string, amount: number, method: "transfer" | "tunai") => void;
   login: (role: AdminRole) => void;
   logout: () => void;
@@ -674,6 +675,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
             priceLog: [{ at, skuId, field, from: sku[field], to: value, by: ROLE_LABEL[st.admin.role], reason }, ...st.priceLog],
           };
         });
+      },
+      updateSku(skuId, patch) {
+        update((st) => ({ ...st, skus: st.skus.map((s) => (s.id === skuId ? { ...s, ...patch } : s)) }));
       },
       recordInvoicePayment(number, amount, method) {
         const at = stamp();

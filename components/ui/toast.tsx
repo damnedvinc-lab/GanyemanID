@@ -30,7 +30,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       {children}
       <div
         aria-live="polite"
-        className="no-print pointer-events-none fixed inset-x-4 bottom-24 z-[60] flex flex-col items-center gap-2 sm:inset-x-auto sm:bottom-6 sm:right-6 sm:items-end"
+        className="no-print pointer-events-none fixed inset-x-4 bottom-24 z-[60] flex flex-col items-center gap-2 sm:inset-x-auto sm:bottom-16 sm:right-6 sm:items-end"
       >
         {items.map((t) => {
           const Icon = t.tone === "error" ? CircleAlert : t.tone === "info" ? Info : CircleCheck;
